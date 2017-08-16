@@ -1,0 +1,23 @@
+{
+  "name": "angular-to-do",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node_modules/browser-sync/bin/browser-sync.js start --server . --files ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmarzu/angular-to-do.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmarzu/angular-to-do/issues"
+  },
+  "homepage": "https://github.com/jmarzu/angular-to-do#readme",
+  "dependencies": {
+    "browser-sync": "^2.18.13"
+  }
+}
