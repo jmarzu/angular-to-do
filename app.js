@@ -9,5 +9,15 @@ app.controller('ToDoCtrl', function($scope) {
 
 	$scope.clear = function() {
 		return $scope.listItems = [];
-	}
+	};
+
+	$scope.removeItem = function(item) {
+		for (var i = 0; i <= $scope.listItems.length - 1; i++) {
+			if ($scope.listItems[i] === item) {
+				$scope.listItems.splice(i, 1);
+			}
+		}
+
+		return $scope.listItems;
+	};
 });

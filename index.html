@@ -9,21 +9,22 @@
     <script src="app.js"></script>
 </head>
 <body class="container" ng-app="ToDoApp" ng-controller="ToDoCtrl">
-	<h1>To Do Form</h1>
+	<h1>Angular To Do List</h1>
 	<div class="toDo__form input-group">
 		<form ng-submit="addToList()" name="toDoForm" class="toDo__form">
-			<input class="form-control toDo-form__items" type="text" ng-model="listItems.item" autofocus>
+			<input class="form-control" id="toDoInput" type="text" ng-model="listItems.item" autofocus>
 			<button type="submit" class="btn btn-primary">Add to list</button>
 		</form>
-
 		<button ng-click="clear()" class="btn btn-secondary">Clear List</button>
 	</div>
 
-	<div>
+	<div class="well toDoList">
 		<ul ng-repeat="item in listItems track by $index">
-			<li>{{ item }}</li>
+			<li class="list-item">
+				{{ item }}
+				<button class="btn btn-xs btn-danger toDoList__btn" ng-click="removeItem(item)">x</button>
+			</li>
 		</ul>
 	</div>
-
 </body>
 </html>

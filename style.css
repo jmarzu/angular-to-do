@@ -1,5 +1,25 @@
+body {
+	margin: 0 auto;
+}
+
 .toDo__form {
 	display: flex;
 	align-items: center;
-	margin: 0 10px;
+}
+
+#toDoInput {
+	border-radius: 3px;
+}
+
+.toDo__form button {
+	margin-left: 10px;
+}
+
+.toDoList {
+	margin-top: 10px;
+	width: 368px;
+}
+
+.toDoList__btn {
+	margin-left: 5px;
 }
