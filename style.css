@@ -7,7 +7,7 @@ body {
 	align-items: center;
 }
 
-#toDoInput {
+.toDoInput {
 	border-radius: 3px;
 }
 

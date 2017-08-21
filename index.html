@@ -12,7 +12,7 @@
 	<h1>Angular To Do List</h1>
 	<div class="toDo__form input-group">
 		<form ng-submit="addToList()" name="toDoForm" class="toDo__form">
-			<input class="form-control" id="toDoInput" type="text" ng-model="listItems.item" autofocus>
+			<input class="form-control toDoInput" type="text" ng-model="listItems.item" autofocus>
 			<button type="submit" class="btn btn-primary">Add to list</button>
 		</form>
 		<button ng-click="clear()" class="btn btn-secondary">Clear List</button>

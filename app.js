@@ -5,6 +5,7 @@ app.controller('ToDoCtrl', function($scope) {
 
 	$scope.addToList = function() {
 		$scope.listItems.push($scope.listItems.item);
+		$scope.listItems.item = null;
 	};
 
 	$scope.clear = function() {
