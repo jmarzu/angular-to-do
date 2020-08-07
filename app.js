@@ -11,25 +11,36 @@ app.controller('ToDoCtrl', function($scope) {
 	$scope.listItem = null;
 
 	$scope.addToList = addToList;
-	$scope.clear = clear;
+	$scope.clearList = clearList;
+	$scope.clearItem = clearItem;
+	$scope.editItem = editItem;
 	$scope.removeItem = removeItem;
 
+	////////////////
 
 	function addToList() {
 		if (!$scope.listItems.includes($scope.listItem)) {
 			$scope.listItems.push($scope.listItem);
+			$scope.formError = false;
 		} else {
-			console.log('this is an error state, item already in list', $scope.toDoForm);
-			$scope.toDoForm.$setValidity('listItem', false);
-			// $scope.toDoForm.errors.listItem = true;
+			$scope.formError = true;
 		}
 
 		$scope.listItem = null;
 	};
 
-	function clear() {
-		return $scope.listItems = [];
+	function clearList() {
+		$scope.listItems = [];
+		$scope.formError = false;
 	};
+
+	function clearItem() {
+		$scope.listItem = null;
+	}
+
+	function editItem(item) {
+		console.log('make the edit');
+	}
 
 	function removeItem(item) {
 		$scope.listItems = $scope.listItems.filter(i => i !== item);

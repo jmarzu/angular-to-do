@@ -12,31 +12,35 @@
 	<h1>Angular To Do List</h1>
 
 	<!-- TODO: Add category to append on to do item for organization -->
-	<div>
-		<ng-select>
-			<ng-options></ng-options>
-		</ng-select>
+	<!-- <div>
+		<select ng-options="item in item.label for item in itemCategories track by $index" ng-model="itemCategories"></select>
+	</div> -->
+
+	<!-- TODO: Add edit state to the form -->
+	<div class="toDo__form">
+		<form ng-submit="addToList()" name="toDoForm" class="toDo__form__form">
+			<input class="form-control toDoInput" type="text" ng-model="listItem" autofocus>
+			<button type="submit" class="btn btn-primary" ng-disabled="!listItem">Add to list</button>
+		</form>
+		<button ng-click="clearItem()" class="btn btn-secondary">Clear Item</button>
+		<button ng-click="clearList()" class="btn btn-secondary">Clear List</button>
 	</div>
 
-	<!-- TODO: Add error state to the form -->
-	<div class="toDo__form input-group">
-		<form ng-submit="addToList()" name="toDoForm" class="toDo__form">
-			<input class="form-control toDoInput" type="text" ng-model="listItem" autofocus>
-			<button type="submit" class="btn btn-primary">Add to list</button>
-		</form>
-		<button ng-click="clear()" class="btn btn-secondary">Clear List</button>
+	<div class="text-danger" ng-if="formError">
+		Item already on list
 	</div>
 
 	<div class="well toDoList">
 		<table class="table table-bordered table-striped">
 			<thead>
 				<th>To Do</th>
-				<th width="1%" ng-if="listItems.length"></th>
+				<th ng-if="listItems.length"></th>
 				<tbody>
 					<tr ng-repeat="item in listItems track by $index" ng-if="listItems.length">
 						<td>{{ item }}</td>
-						<td>
-							<button class="btn btn-xs btn-danger toDoList__btn" ng-click="removeItem(item)">x</button>
+						<td class="text-right">
+							<button class="btn btn-secondary toDoList__btn">Edit</button>
+							<button class="btn btn-danger toDoList__btn" ng-click="removeItem(item)">Remove</button>
 						</td>
 					</tr>
 					<tr class="to-do-empty-form" ng-if="!listItems.length"> 
