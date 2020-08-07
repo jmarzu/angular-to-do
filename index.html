@@ -10,21 +10,43 @@
 </head>
 <body class="container" ng-app="ToDoApp" ng-controller="ToDoCtrl">
 	<h1>Angular To Do List</h1>
+
+	<!-- TODO: Add category to append on to do item for organization -->
+	<div>
+		<ng-select>
+			<ng-options></ng-options>
+		</ng-select>
+	</div>
+
+	<!-- TODO: Add error state to the form -->
 	<div class="toDo__form input-group">
 		<form ng-submit="addToList()" name="toDoForm" class="toDo__form">
-			<input class="form-control toDoInput" type="text" ng-model="listItems.item" autofocus>
+			<input class="form-control toDoInput" type="text" ng-model="listItem" autofocus>
 			<button type="submit" class="btn btn-primary">Add to list</button>
 		</form>
 		<button ng-click="clear()" class="btn btn-secondary">Clear List</button>
 	</div>
 
 	<div class="well toDoList">
-		<ul ng-repeat="item in listItems track by $index">
-			<li class="list-item">
-				{{ item }}
-				<button class="btn btn-xs btn-danger toDoList__btn" ng-click="removeItem(item)">x</button>
-			</li>
-		</ul>
+		<table class="table table-bordered table-striped">
+			<thead>
+				<th>To Do</th>
+				<th width="1%" ng-if="listItems.length"></th>
+				<tbody>
+					<tr ng-repeat="item in listItems track by $index" ng-if="listItems.length">
+						<td>{{ item }}</td>
+						<td>
+							<button class="btn btn-xs btn-danger toDoList__btn" ng-click="removeItem(item)">x</button>
+						</td>
+					</tr>
+					<tr class="to-do-empty-form" ng-if="!listItems.length"> 
+						<td>
+							<p><strong>Add to your list</strong></p>
+						</td>
+					</tr>
+				</tbody>
+			</thead>
+		</table>
 	</div>
 </body>
 </html>

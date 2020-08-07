@@ -18,8 +18,25 @@ body {
 .toDoList {
 	margin-top: 10px;
 	width: 368px;
+	min-height: 368px;
 }
 
 .toDoList__btn {
 	margin-left: 5px;
+}
+
+.to-do-empty-form {
+	text-align: center;
+	height: 100px;
+}
+
+.to-do-empty-form td {
+	position: relative;
+}
+
+.to-do-empty-form td p {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 }
